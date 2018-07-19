@@ -9,7 +9,7 @@ import tensorflow as tf
 from six.moves import urllib
 
 SOURCE_URL = 'https://storage.googleapis.com/cvdf-datasets/mnist/'
-WORK_DIRECTORY = 'data'
+WORK_DIRECTORY = 'data_mnist'
 IMAGE_SIZE = 28
 NUM_CHANNELS = 1
 PIXEL_DEPTH = 255
@@ -195,18 +195,16 @@ def main():
                 sys.stdout.flush()
 
 
-# for i in dir(tf.nn):
-#     print(i)
-# parser = argparse.ArgumentParser()
-# parser.add_argument(
-#     '--use_fp16',
-#     default=False,
-#     help='Use half floats instead of full floats if True.',
-#     action='store_true')
-# parser.add_argument(
-#     '--self_test',
-#     default=False,
-#     action='store_true',
-#     help='True if running a self test.')
-# FLAGS, unparsed = parser.parse_known_args()
-# main()
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    '--use_fp16',
+    default=False,
+    help='Use half floats instead of full floats if True.',
+    action='store_true')
+parser.add_argument(
+    '--self_test',
+    default=False,
+    action='store_true',
+    help='True if running a self test.')
+FLAGS, unparsed = parser.parse_known_args()
+main()
