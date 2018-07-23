@@ -34,4 +34,7 @@ def conv2d_fixed_padding(inputs, filters, kernel_size, strides, data_format):
                             kernel_initializer=tf.variance_scaling_initializer(), data_format=data_format)
 
 
-def
+def _building_block_v1(inputs,filters,training,projection_shortcut,strides,data_format):
+    shortcut=inputs
+    if projection_shortcut is not None:
+        short=projection_shortcut(inputs)
