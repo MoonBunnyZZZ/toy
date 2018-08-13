@@ -14,7 +14,7 @@ FLAGS = None
 def train():
     with tf.Graph().as_default():
         global_step = tf.contrib.framework.get_or_create_global_step()
-        tf.train.get_or_create_global_step
+
         images, labels = cifar10.distorted_inputs()
 
         logits = cifar10.inference(images)
