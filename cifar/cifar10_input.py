@@ -1,7 +1,6 @@
 import os
 
 import tensorflow as tf
-from tensorflow.python.platform import gfile
 
 IMAGE_SIZE = 24
 
@@ -82,6 +81,8 @@ def distorted_inputs(data_dir, batch_size):
         min_queue_examples,
         batch_size,
         shuffle=True)
+
+
 def inputs(eval_data, data_dir, batch_size):
     if not eval_data:
         filenames = [os.path.join(data_dir, 'data_batch_%d.bin' % i) for i in range(1, 6)]
@@ -121,11 +122,12 @@ def inputs(eval_data, data_dir, batch_size):
         batch_size,
         shuffle=False)
 
+
 # distorted_inputs('/Users/wangxu_macair/Desktop/cifar-10-batches-py',10)
 data_dir = '/Users/wangxu_macair/Desktop/cifar-10-batches-py'
 filenames = [os.path.join(data_dir, 'data_batch_%d' % i) for i in range(1, 6)]
-filenames=tf.train.string_input_producer(filenames)
+filenames = tf.train.string_input_producer(filenames)
 a, b = read_cifar10(filenames)
 sess = tf.InteractiveSession()
 tf.train.start_queue_runners(sess=sess)
-print('here',sess.run(b))
+print('here', sess.run(b))
